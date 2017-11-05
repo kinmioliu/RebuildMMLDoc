@@ -1,0 +1,10 @@
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\bin\Debug\RebuildMMLDoc.exe.config
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\bin\Debug\RebuildMMLDoc.exe
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\bin\Debug\RebuildMMLDoc.pdb
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.csprojResolveAssemblyReference.cache
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.Properties.Resources.resources
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.csproj.GenerateResource.Cache
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.exe
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.pdb
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.Form1.resources
+F:\vs2017\RebuildMMLDoc\RebuildMMLDoc\RebuildMMLDoc\obj\Debug\RebuildMMLDoc.csproj.ResolveComReference.cache
