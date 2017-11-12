@@ -16,22 +16,19 @@ namespace RebuildMMLDoc
 
 
         //1.声明关于事件的委托；
-        public delegate void AlarmEventHandler(string text, int grap);
+        public delegate void ParserEventHandler(string text, int grap);
 
         //2.声明事件；   
-        public event AlarmEventHandler Alarm;
+        public event ParserEventHandler ParserEvt;
 
         //3.编写引发事件的函数；
         public void notify_parser_result(string text, int grap)
         {
-            if (this.Alarm != null)
+            if (this.ParserEvt != null)
             {
-                Console.WriteLine("\n狗报警: 有小偷进来了,汪汪~~~~~~~");
-                this.Alarm(text, grap);   //发出警报
+                this.ParserEvt(text, grap);
             }
         }
-
-
 
 
         #region 构造函数
@@ -65,13 +62,31 @@ namespace RebuildMMLDoc
             //基本属性
             word_app.Visible = false;
 
+
             Microsoft.Office.Interop.Word.Document doc = word_app.Documents.Open(file);
             int all_graps = doc.Paragraphs.Count;
-            for (int graph = 1; graph <= all_graps; graph++)
+            int all_tables = doc.Tables.Count;
+            for (int table = 1; table <= all_tables; table++)
             {
-                string temp = doc.Paragraphs[graph].Range.Text.Trim();//变量i为第i段
-                notify_parser_result(temp, graph);
+                //mml\tdescribe\tattention\tmark\n
+                string table_content = "";
+                string tmp_str = "";
+                Microsoft.Office.Interop.Word.Table cur_table = doc.Tables[table];
+                
+                tmp_str = Helper.reorganize_tab_content(cur_table.Cell(1, 2).Range.Text) + "\t";
+                table_content += tmp_str;
+                tmp_str = Helper.reorganize_tab_content(cur_table.Cell(2, 2).Range.Text) + "\t";
+                table_content += tmp_str;
+                tmp_str = Helper.reorganize_tab_content(cur_table.Cell(4, 2).Range.Text) + "\t";
+                table_content += tmp_str;
+                tmp_str = Helper.reorganize_tab_content(cur_table.Cell(5, 2).Range.Text);
+                table_content += tmp_str;
+                notify_parser_result(table_content, table * 100 / all_tables);
             }
+
+            //关闭输出文档
+
+            doc.Close();
 
             return Helper.ERR_SUCCESS;
         }

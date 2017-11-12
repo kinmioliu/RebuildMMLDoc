@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace RebuildMMLDoc
 {
@@ -49,9 +51,53 @@ namespace RebuildMMLDoc
             return true;
         }
 
+        public static bool special_character(char chr)
+        {
+            if (chr != ' ' && chr != '\t' && chr != '\r' && chr != '\n' && chr != '\a')
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        public static string reorganize_tab_content(string input)
+        {
+            //MML组成 字母 / -/ 数字
+            //找到第一个 字母/-数字
+            int front = 0;            
+            char[] arr = input.ToCharArray();            
+            while(special_character(arr[front]))
+            {
+                front++;
+            }
+            int tail = input.Length - 1;
+            while (special_character(arr[tail]))
+            {
+                tail--;
+            }
+
+            return input.Substring(front, tail - front + 1);
+        }
+
         public static string get_errinfo(int err_code)
         {
             return errcode_info[err_code];
         }
+
+        public void WriteMessage(string msg)
+        {
+            using (FileStream fs = new FileStream(@"d:\test.txt", FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                using (StreamWriter sw = new StreamWriter(fs))
+                {
+                     sw.BaseStream.Seek(0, SeekOrigin.End);
+                     sw.WriteLine("{0}\n", msg, DateTime.Now);
+                     sw.Flush();
+                 }
+             }
+         }
+
     }
 }

@@ -30,7 +30,7 @@
         {
             this.bt_choose_doc = new System.Windows.Forms.Button();
             this.bt_parse_mmldoc = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.probar_parse = new MMLProgressBar();
             this.rtb_dumpinfo = new MMLRichTextBox();
             this.SuspendLayout();
             // 
@@ -56,10 +56,10 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(119, 14);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(362, 23);
-            this.progressBar1.TabIndex = 4;
+            this.probar_parse.Location = new System.Drawing.Point(119, 14);
+            this.probar_parse.Name = "progressBar1";
+            this.probar_parse.Size = new System.Drawing.Size(362, 23);
+            this.probar_parse.TabIndex = 4;
             // 
             // rtb_dumpinfo
             // 
@@ -77,7 +77,7 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(508, 311);
             this.Controls.Add(this.rtb_dumpinfo);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.probar_parse);
             this.Controls.Add(this.bt_parse_mmldoc);
             this.Controls.Add(this.bt_choose_doc);
             this.Name = "Form1";
@@ -90,7 +90,7 @@
         private string selected_doc;
         private System.Windows.Forms.Button bt_choose_doc;
         private System.Windows.Forms.Button bt_parse_mmldoc;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private MMLProgressBar probar_parse;
         private MMLRichTextBox rtb_dumpinfo;
     }
 }

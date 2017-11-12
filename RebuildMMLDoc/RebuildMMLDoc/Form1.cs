@@ -49,6 +49,13 @@ namespace RebuildMMLDoc
             {
                 DocParser parser = new DocParser(selected_doc);
                 rtb_dumpinfo.register(parser);
+                probar_parse.register(parser);
+                //初始化输出文档
+                MMLOutputTxt output_txt = new MMLOutputTxt();
+                string txt_file = selected_doc.Remove(selected_doc.Length - 5) + ".txt"; //xxx.docx
+                output_txt.init(txt_file);
+                output_txt.register(parser);
+
                 int ret = parser.parser_files();
                 rtb_dumpinfo.AppendText(Helper.get_errinfo(ret) + "\n");
 //                MessageBox.Show("处理结果：" + Helper.get_errinfo(ret) + "。", "结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
